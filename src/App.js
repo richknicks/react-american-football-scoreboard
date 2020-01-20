@@ -3,10 +3,24 @@ import React, { useState } from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
+
+
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [home, setHome] = useState(0);
   const [away, setAway] = useState(0);
+  const addSevenHome = event => {
+    setHome(home + 7)
+  };
+  const addThreeHome = event => {
+    setHome(home + 3)
+  };
+  const addSevenAway = event => {
+    setAway(away + 7)
+  };
+  const addThreeAway = event => {
+    setAway(away + 3)
+  };
   return (
     <div className="container">
       <section className="scoreboard">
@@ -26,15 +40,18 @@ function App() {
         </div>
         <BottomRow />
       </section>
+         
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown">Home Touchdown</button>
-          <button className="homeButtons__fieldGoal">Home Field Goal</button>
+         
+        
+          <button onClick={addSevenHome} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={addThreeHome} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button className="awayButtons__touchdown">Away Touchdown</button>
-          <button className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={addSevenAway} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={addThreeAway} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
     </div>
